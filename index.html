@@ -1,0 +1,751 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>进阶段 · Think 思辨英语 — 花笙青少英语</title>
+<meta name="description" content="花笙青少英语Think思辨英语课程，10-15岁，剑桥大学出版社Think系列，批判性思维训练，PET/FCE备考衔接。">
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=DM+Sans:wght@400;500;600;700&display=swap');
+
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --violet:#7c3aed;
+  --violet-dark:#6d28d9;
+  --violet-deep:#4c1d95;
+  --violet-light:#ede9fe;
+  --violet-glow:#a78bfa;
+  --violet-pale:#f5f3ff;
+  --ink:#0f172a;
+  --slate:#475569;
+  --muted:#94a3b8;
+  --cream:#faf8ff;
+}
+html{scroll-behavior:smooth}
+body{
+  font-family:'DM Sans',-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif;
+  color:var(--ink);background:#fff;line-height:1.6;-webkit-font-smoothing:antialiased;
+  overflow-x:hidden;
+}
+
+/* ── HERO ── */
+.hero{
+  position:relative;min-height:100vh;display:flex;flex-direction:column;
+  justify-content:center;align-items:center;text-align:center;
+  background:linear-gradient(165deg,#1e1044 0%,#4c1d95 30%,#7c3aed 60%,#8b5cf6 100%);
+  color:#fff;padding:80px 24px 60px;overflow:hidden;
+}
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background:
+    radial-gradient(ellipse 600px 400px at 20% 30%,rgba(167,139,250,.15),transparent),
+    radial-gradient(ellipse 500px 500px at 80% 70%,rgba(237,233,254,.08),transparent);
+  pointer-events:none;
+}
+.hero::after{
+  content:'';position:absolute;bottom:-2px;left:0;right:0;height:80px;
+  background:linear-gradient(to top,#fff,transparent);pointer-events:none;
+}
+.hero-logo{
+  width:56px;height:56px;border-radius:16px;background:rgba(255,255,255,.12);
+  backdrop-filter:blur(8px);border:1px solid rgba(255,255,255,.15);
+  display:flex;align-items:center;justify-content:center;margin-bottom:28px;
+}
+.hero-logo img{height:36px;width:auto}
+.hero h1{
+  font-family:'Playfair Display',serif;font-size:clamp(32px,7vw,52px);
+  font-weight:900;letter-spacing:-1px;line-height:1.15;margin-bottom:12px;
+  position:relative;z-index:1;
+}
+.hero h1 .accent{
+  background:linear-gradient(135deg,var(--violet-glow),#c4b5fd);
+  -webkit-background-clip:text;-webkit-text-fill-color:transparent;
+  background-clip:text;
+}
+.hero .tagline{
+  font-size:clamp(15px,3.5vw,19px);opacity:.85;max-width:420px;
+  margin:0 auto 40px;line-height:1.7;position:relative;z-index:1;font-weight:500;
+}
+.hero-stats{
+  display:flex;gap:28px;position:relative;z-index:1;flex-wrap:wrap;justify-content:center;
+}
+.hero-stat{
+  background:rgba(255,255,255,.1);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.12);border-radius:14px;
+  padding:16px 20px;min-width:100px;text-align:center;
+}
+.hero-stat .num{font-size:28px;font-weight:800;color:var(--violet-glow)}
+.hero-stat .label{font-size:11px;opacity:.65;margin-top:2px;font-weight:600;letter-spacing:.3px}
+
+/* ── SECTION BASE ── */
+section{padding:72px 24px}
+.section-inner{max-width:640px;margin:0 auto}
+.sec-tag{
+  display:inline-flex;align-items:center;gap:6px;
+  font-size:11px;font-weight:700;letter-spacing:1.2px;text-transform:uppercase;
+  padding:5px 14px;border-radius:999px;margin-bottom:16px;
+  background:var(--violet-light);color:var(--violet-dark);
+}
+.sec-tag::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--violet)}
+.sec-title{
+  font-family:'Playfair Display',serif;font-size:clamp(26px,5.5vw,38px);
+  font-weight:900;letter-spacing:-.5px;line-height:1.2;margin-bottom:12px;
+}
+.sec-desc{font-size:15px;color:var(--slate);line-height:1.8;margin-bottom:32px}
+
+/* ── TEXTBOOK SECTION ── */
+.textbook-section{background:var(--cream)}
+.textbook-hero-img{
+  width:100%;max-width:320px;height:auto;border-radius:16px;
+  margin:0 auto 24px;display:block;
+  box-shadow:0 12px 40px rgba(124,58,237,.15);
+}
+.textbook-grid{
+  display:flex;gap:12px;justify-content:center;flex-wrap:wrap;margin-bottom:24px;
+}
+.textbook-level{
+  background:#fff;border:1px solid #e2e8f0;border-radius:12px;
+  padding:14px 12px;text-align:center;flex:1;min-width:80px;max-width:110px;
+  transition:.25s;position:relative;overflow:hidden;
+}
+.textbook-level::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:3px;
+  background:linear-gradient(90deg,var(--violet),var(--violet-glow));opacity:0;
+  transition:.25s;
+}
+.textbook-level:hover{transform:translateY(-3px);box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.textbook-level:hover::before{opacity:1}
+.textbook-level .tl-name{
+  font-size:13px;font-weight:800;color:var(--violet-dark);
+  letter-spacing:.3px;margin-bottom:2px;
+}
+.textbook-level .tl-exam{
+  font-size:10px;color:var(--muted);font-weight:600;
+}
+.textbook-level .tl-dot{
+  width:8px;height:8px;border-radius:50%;margin:0 auto 8px;
+  background:var(--violet-light);border:2px solid var(--violet);
+}
+.textbook-note{
+  background:#fff;border:1px solid #e2e8f0;border-radius:12px;
+  padding:16px 20px;font-size:13px;color:var(--slate);line-height:1.7;
+  position:relative;padding-left:48px;
+}
+.textbook-note::before{
+  content:'';position:absolute;left:16px;top:14px;font-size:18px;
+}
+.textbook-note .note-icon{
+  position:absolute;left:16px;top:14px;font-size:18px;
+}
+
+/* ── PROGRESSION PATH ── */
+.progression-section{background:#fff}
+.progression-flow{
+  display:flex;flex-direction:column;align-items:center;gap:0;
+}
+.prog-step{
+  background:var(--violet-pale);border:2px solid var(--violet-light);border-radius:14px;
+  padding:18px 20px;width:100%;max-width:400px;text-align:center;
+  transition:.25s;position:relative;
+}
+.prog-step:hover{box-shadow:0 4px 20px rgba(124,58,237,.1);transform:translateY(-2px)}
+.prog-step .ps-label{
+  font-size:10px;font-weight:700;letter-spacing:.8px;text-transform:uppercase;
+  color:var(--muted);margin-bottom:4px;
+}
+.prog-step .ps-name{
+  font-family:'Playfair Display',serif;font-size:18px;font-weight:900;
+  color:var(--violet-deep);margin-bottom:2px;
+}
+.prog-step .ps-sub{font-size:12px;color:var(--slate)}
+.prog-step.active{
+  background:linear-gradient(135deg,var(--violet),var(--violet-dark));
+  border-color:var(--violet);color:#fff;
+}
+.prog-step.active .ps-label{color:rgba(255,255,255,.6)}
+.prog-step.active .ps-name{color:#fff}
+.prog-step.active .ps-sub{color:rgba(255,255,255,.75)}
+.prog-arrow{
+  width:2px;height:28px;background:var(--violet-light);position:relative;
+}
+.prog-arrow::after{
+  content:'';position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);
+  border-left:5px solid transparent;border-right:5px solid transparent;
+  border-top:6px solid var(--violet-light);
+}
+
+/* ── UNIT STRUCTURE ── */
+.structure-section{background:var(--cream)}
+.unit-flow{display:flex;flex-direction:column;gap:0}
+.unit-step{
+  display:flex;align-items:flex-start;gap:16px;position:relative;
+  padding:16px 0;
+}
+.unit-step:not(:last-child)::after{
+  content:'';position:absolute;left:21px;top:52px;bottom:0;width:2px;
+  background:linear-gradient(to bottom,var(--violet-light),var(--violet-glow));
+}
+.unit-num{
+  width:44px;height:44px;border-radius:12px;flex-shrink:0;
+  background:var(--violet);color:#fff;display:flex;align-items:center;
+  justify-content:center;font-size:16px;font-weight:900;
+  font-family:'Playfair Display',serif;
+}
+.unit-content h4{font-size:14px;font-weight:800;color:var(--violet-deep);margin-bottom:4px}
+.unit-content p{font-size:12px;color:var(--slate);line-height:1.7}
+
+/* ── FEATURES ── */
+.features-section{background:#fff}
+.feature-list{display:flex;flex-direction:column;gap:16px}
+.feature-item{
+  display:flex;align-items:flex-start;gap:16px;
+  background:var(--cream);border:1px solid #e2e8f0;border-radius:14px;
+  padding:20px;transition:.2s;
+}
+.feature-item:hover{box-shadow:0 4px 16px rgba(0,0,0,.04);transform:translateY(-1px)}
+.feature-icon{
+  width:44px;height:44px;border-radius:12px;flex-shrink:0;
+  background:var(--violet-light);display:flex;align-items:center;justify-content:center;
+  font-size:20px;
+}
+.feature-content h4{font-size:14px;font-weight:800;margin-bottom:4px}
+.feature-content p{font-size:12px;color:var(--slate);line-height:1.6}
+
+/* ── TEACHING HIGHLIGHT ── */
+.highlight-section{background:var(--cream)}
+.highlight-box{
+  background:#fff;border:1px solid #e2e8f0;border-radius:16px;
+  padding:28px 24px;position:relative;overflow:hidden;
+}
+.highlight-box::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:4px;
+  background:linear-gradient(90deg,var(--violet),var(--violet-glow));
+}
+.highlight-box .hl-quote{
+  font-size:15px;line-height:1.8;color:var(--ink);margin-bottom:16px;
+  font-weight:500;
+}
+.highlight-box .hl-quote em{
+  font-style:normal;color:var(--violet);font-weight:700;
+}
+.highlight-cards{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:20px;
+}
+.hl-card{
+  background:var(--violet-pale);border-radius:10px;padding:14px 10px;text-align:center;
+}
+.hl-card .hlc-icon{font-size:24px;margin-bottom:6px}
+.hl-card .hlc-label{font-size:11px;font-weight:700;color:var(--violet-dark);line-height:1.4}
+
+/* ── CASE STUDY ── */
+.case-section{background:#fff}
+.case-card{
+  background:linear-gradient(135deg,var(--violet-pale),#fff);
+  border:1px solid var(--violet-light);border-radius:16px;
+  padding:28px 24px;position:relative;overflow:hidden;
+}
+.case-card::before{
+  content:'';position:absolute;top:-40px;right:-40px;width:120px;height:120px;
+  border-radius:50%;background:var(--violet-light);opacity:.5;
+}
+.case-header{
+  display:flex;align-items:center;gap:14px;margin-bottom:20px;
+  position:relative;z-index:1;
+}
+.case-avatar{
+  width:56px;height:56px;border-radius:50%;
+  background:linear-gradient(135deg,var(--violet),var(--violet-glow));
+  display:flex;align-items:center;justify-content:center;
+  font-size:24px;color:#fff;font-weight:900;
+  font-family:'Playfair Display',serif;
+}
+.case-info h4{font-size:16px;font-weight:800}
+.case-info p{font-size:12px;color:var(--slate)}
+.case-stats{
+  display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;
+  position:relative;z-index:1;
+}
+.case-stat{
+  background:#fff;border:1px solid var(--violet-light);border-radius:10px;
+  padding:10px 14px;text-align:center;flex:1;min-width:90px;
+}
+.case-stat .cs-num{font-size:20px;font-weight:900;color:var(--violet)}
+.case-stat .cs-label{font-size:10px;color:var(--slate);margin-top:2px;font-weight:600}
+.case-quote{
+  background:#fff;border:1px solid #e2e8f0;border-radius:12px;
+  padding:16px;font-size:13px;color:var(--slate);line-height:1.7;
+  position:relative;z-index:1;padding-left:36px;
+}
+.case-quote::before{
+  content:'"';position:absolute;left:14px;top:10px;font-size:28px;
+  font-family:'Playfair Display',serif;color:var(--violet);font-weight:900;
+  line-height:1;
+}
+
+/* ── EXPECTED OUTCOMES ── */
+.expected-section{
+  background:linear-gradient(165deg,#1e1044 0%,#4c1d95 50%,#7c3aed 100%);
+  color:#fff;
+}
+.expected-section .sec-tag{background:rgba(255,255,255,.12);color:var(--violet-glow)}
+.expected-section .sec-tag::before{background:var(--violet-glow)}
+.expected-section .sec-title{color:#fff}
+.expected-section .sec-desc{color:rgba(255,255,255,.75)}
+.expected-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.expected-card{
+  background:rgba(255,255,255,.08);backdrop-filter:blur(6px);
+  border:1px solid rgba(255,255,255,.1);border-radius:14px;
+  padding:20px 16px;text-align:center;transition:.2s;
+}
+.expected-card:hover{background:rgba(255,255,255,.12);transform:translateY(-2px)}
+.expected-card .ec-icon{font-size:24px;margin-bottom:6px}
+.expected-card .ec-num{font-size:14px;font-weight:700;color:#fff;line-height:1.5}
+.expected-card .ec-label{font-size:11px;color:rgba(255,255,255,.65);margin-top:2px;font-weight:500}
+
+/* ── FUTURE PATH ── */
+.future-section{background:#fff}
+.future-flow{
+  display:flex;flex-direction:column;align-items:center;gap:0;
+}
+.future-step{
+  width:100%;max-width:440px;padding:18px 20px;border-radius:14px;
+  text-align:center;transition:.25s;
+}
+.future-step:hover{transform:translateY(-2px)}
+.future-step .fs-name{
+  font-family:'Playfair Display',serif;font-size:17px;font-weight:900;
+  margin-bottom:4px;
+}
+.future-step .fs-sub{font-size:12px;line-height:1.5}
+.future-step.fs-violet{
+  background:var(--violet);color:#fff;
+  box-shadow:0 8px 32px rgba(124,58,237,.25);
+}
+.future-step.fs-violet .fs-sub{color:rgba(255,255,255,.8)}
+.future-step.fs-light{
+  background:var(--violet-pale);border:1px solid var(--violet-light);
+  color:var(--violet-deep);
+}
+.future-step.fs-light .fs-sub{color:var(--slate)}
+.future-arrow{
+  width:2px;height:24px;background:var(--violet-light);position:relative;
+}
+.future-arrow::after{
+  content:'';position:absolute;bottom:-4px;left:50%;transform:translateX(-50%);
+  border-left:5px solid transparent;border-right:5px solid transparent;
+  border-top:6px solid var(--violet-light);
+}
+
+/* ── CTA ── */
+.cta-section{
+  background:linear-gradient(165deg,#1e1044 0%,#4c1d95 50%,#7c3aed 100%);
+  color:#fff;text-align:center;padding:80px 24px 60px;position:relative;
+}
+.cta-section::before{
+  content:'';position:absolute;inset:0;
+  background:radial-gradient(ellipse 400px 300px at 50% 30%,rgba(167,139,250,.1),transparent);
+  pointer-events:none;
+}
+.cta-section h2{
+  font-family:'Playfair Display',serif;font-size:clamp(26px,5.5vw,36px);
+  font-weight:900;margin-bottom:12px;position:relative;z-index:1;
+}
+.cta-section .cta-sub{font-size:15px;opacity:.8;margin-bottom:36px;position:relative;z-index:1}
+.cta-btn{
+  display:inline-flex;align-items:center;gap:8px;
+  padding:16px 40px;background:#fff;color:var(--violet-dark);
+  font-weight:800;font-size:16px;border-radius:999px;text-decoration:none;
+  transition:.25s;position:relative;z-index:1;
+  box-shadow:0 4px 20px rgba(0,0,0,.15);
+}
+.cta-btn:hover{transform:translateY(-2px);box-shadow:0 8px 30px rgba(0,0,0,.2)}
+.cta-qr{
+  display:flex;flex-direction:column;align-items:center;gap:8px;
+  margin-top:28px;position:relative;z-index:1;
+}
+.cta-qr img{
+  width:110px;height:110px;border-radius:14px;
+  border:3px solid rgba(255,255,255,.2);
+}
+.cta-qr span{font-size:12px;opacity:.6}
+.cta-address{
+  font-size:12px;opacity:.5;margin-top:20px;position:relative;z-index:1;
+  line-height:1.6;
+}
+
+/* ── FOOTER ── */
+footer{
+  text-align:center;padding:28px 24px;
+  color:var(--muted);font-size:11px;background:#fff;
+  border-top:1px solid #f1f5f9;
+}
+
+/* ── ANIMATIONS ── */
+.fade-in{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-in.visible{opacity:1;transform:none}
+.fade-in-left{opacity:0;transform:translateX(-24px);transition:opacity .6s ease,transform .6s ease}
+.fade-in-left.visible{opacity:1;transform:none}
+.fade-in-right{opacity:0;transform:translateX(24px);transition:opacity .6s ease,transform .6s ease}
+.fade-in-right.visible{opacity:1;transform:none}
+.scale-in{opacity:0;transform:scale(.95);transition:opacity .5s ease,transform .5s ease}
+.scale-in.visible{opacity:1;transform:none}
+
+/* stagger children */
+.stagger-children .fade-in:nth-child(1){transition-delay:.05s}
+.stagger-children .fade-in:nth-child(2){transition-delay:.12s}
+.stagger-children .fade-in:nth-child(3){transition-delay:.19s}
+.stagger-children .fade-in:nth-child(4){transition-delay:.26s}
+.stagger-children .fade-in:nth-child(5){transition-delay:.33s}
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ═══ -->
+<section class="hero">
+  <div class="hero-logo">
+    <img src="./logo-blue.png" alt="花笙青少英语">
+  </div>
+  <h1>Think 思辨英语<br><span class="accent">进阶段</span></h1>
+  <p class="tagline">10-15岁 · 剑桥大学出版社 · Think Starter-4<br>不只是学英语，而是用英语去思考世界</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><div class="num">10-15</div><div class="label">适合年龄</div></div>
+    <div class="hero-stat"><div class="num">6级</div><div class="label">课程体系</div></div>
+    <div class="hero-stat"><div class="num">KET</div><div class="label">→ FCE</div></div>
+    <div class="hero-stat"><div class="num">12</div><div class="label">单元/级</div></div>
+  </div>
+</section>
+
+<!-- ═══ 教材介绍 ═══ -->
+<section class="textbook-section">
+  <div class="section-inner fade-in">
+    <div class="sec-tag">核心教材</div>
+    <h2 class="sec-title">Think — 剑桥思辨英语</h2>
+    <p class="sec-desc">由剑桥大学出版社出版的青少年英语系列，以"Think beyond English"为核心理念，在教授英语的同时培养批判性思维，是剑桥考试KET到FCE的官方备考教材。</p>
+    <img src="./Think.jpeg" alt="Think教材" class="textbook-hero-img">
+    <div class="textbook-grid">
+      <div class="textbook-level">
+        <div class="tl-dot"></div>
+        <div class="tl-name">Starter</div>
+        <div class="tl-exam">→ KET</div>
+      </div>
+      <div class="textbook-level">
+        <div class="tl-dot"></div>
+        <div class="tl-name">Think 1</div>
+        <div class="tl-exam">→ PET</div>
+      </div>
+      <div class="textbook-level">
+        <div class="tl-dot"></div>
+        <div class="tl-name">Think 2</div>
+        <div class="tl-exam">→ FCE</div>
+      </div>
+      <div class="textbook-level">
+        <div class="tl-dot"></div>
+        <div class="tl-name">Think 3</div>
+        <div class="tl-exam">→ CAE</div>
+      </div>
+    </div>
+    <div class="textbook-note">
+      <span class="note-icon">📘</span>
+      每个级别包含12个主题单元，涵盖阅读、写作、口语、听力四大技能，配有"Value"价值观讨论和"Think"逻辑思辨板块，引导学生在真实语境中学习和思考。
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 从Power Up到Think ═══ -->
+<section class="progression-section">
+  <div class="section-inner fade-in">
+    <div class="sec-tag">学习路径</div>
+    <h2 class="sec-title">从 Power Up 到 Think</h2>
+    <p class="sec-desc">Power Up构建英语基础，Think将其提升到学术英语与批判性思维的新高度。这是从"学英语"到"用英语思考"的跨越。</p>
+    <div class="progression-flow">
+      <div class="prog-step fade-in">
+        <div class="ps-label">基础阶段</div>
+        <div class="ps-name">Power Up 3</div>
+        <div class="ps-sub">词汇积累 · 语法基础 · 阅读习惯</div>
+      </div>
+      <div class="prog-arrow"></div>
+      <div class="prog-step active fade-in">
+        <div class="ps-label">过渡入口</div>
+        <div class="ps-name">Think Starter</div>
+        <div class="ps-sub">KET水平 · 议论文入门 · 辩论初探</div>
+      </div>
+      <div class="prog-arrow"></div>
+      <div class="prog-step fade-in">
+        <div class="ps-label">进阶提升</div>
+        <div class="ps-name">Think 1</div>
+        <div class="ps-sub">PET水平 · 学术写作 · 批判性思维</div>
+      </div>
+      <div class="prog-arrow"></div>
+      <div class="prog-step fade-in">
+        <div class="ps-label">高阶突破</div>
+        <div class="ps-name">Think 2</div>
+        <div class="ps-sub">FCE水平 · 深度论证 · 独立思辨</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ Think课程结构 ═══ -->
+<section class="structure-section">
+  <div class="section-inner fade-in">
+    <div class="sec-tag">课程结构</div>
+    <h2 class="sec-title">一个单元的完整旅程</h2>
+    <p class="sec-desc">每单元12课时，从阅读输入到批判性思维输出，形成完整的学习闭环。</p>
+    <div class="unit-flow">
+      <div class="unit-step fade-in">
+        <div class="unit-num">1</div>
+        <div class="unit-content">
+          <h4>阅读探索</h4>
+          <p>真实语料输入——文章、访谈、演讲节选，在阅读中发现语言规律</p>
+        </div>
+      </div>
+      <div class="unit-step fade-in">
+        <div class="unit-num">2</div>
+        <div class="unit-content">
+          <h4>批判性思考</h4>
+          <p>Value价值观讨论 + Think逻辑思辨板块，培养深度思考能力</p>
+        </div>
+      </div>
+      <div class="unit-step fade-in">
+        <div class="unit-num">3</div>
+        <div class="unit-content">
+          <h4>词汇与语法</h4>
+          <p>发现式学习——在真实语境中观察、归纳、应用，而非死记硬背</p>
+        </div>
+      </div>
+      <div class="unit-step fade-in">
+        <div class="unit-num">4</div>
+        <div class="unit-content">
+          <h4>写作训练</h4>
+          <p>议论文、报告、评论——从观点表达到完整论证，学习学术写作框架</p>
+        </div>
+      </div>
+      <div class="unit-step fade-in">
+        <div class="unit-num">5</div>
+        <div class="unit-content">
+          <h4>口语与辩论</h4>
+          <p>演讲、辩论、小组讨论——在真实场景中练习英语表达和逻辑论证</p>
+        </div>
+      </div>
+      <div class="unit-step fade-in">
+        <div class="unit-num">6</div>
+        <div class="unit-content">
+          <h4>综合输出</h4>
+          <p>项目式学习——将阅读、思考、写作、口语融为一体，完成真实任务</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 课程特色 ═══ -->
+<section class="features-section">
+  <div class="section-inner fade-in">
+    <div class="sec-tag">课程特色</div>
+    <h2 class="sec-title">Think的核心价值</h2>
+    <p class="sec-desc">不是一套普通的英语教材，而是一套融合了语言学习与思维训练的完整体系。</p>
+    <div class="feature-list stagger-children">
+      <div class="feature-item fade-in">
+        <div class="feature-icon">🧠</div>
+        <div class="feature-content">
+          <h4>批判性思维训练</h4>
+          <p>不只是学英语，而是用英语去思考。Value板块探讨伦理议题，Think板块锻炼逻辑推理，让语言学习成为思维成长的载体。</p>
+        </div>
+      </div>
+      <div class="feature-item fade-in">
+        <div class="feature-icon">🌍</div>
+        <div class="feature-content">
+          <h4>全球议题探讨</h4>
+          <p>AI、环保、社交媒体、国际伦理——话题紧跟时代，激发青少年对世界议题的思考与讨论热情。</p>
+        </div>
+      </div>
+      <div class="feature-item fade-in">
+        <div class="feature-icon">🎤</div>
+        <div class="feature-content">
+          <h4>演讲辩论 + 议论文写作</h4>
+          <p>从观点表达到完整论证体系。学习如何用英语进行有逻辑的辩论，写出有深度的议论文。</p>
+        </div>
+      </div>
+      <div class="feature-item fade-in">
+        <div class="feature-icon">📋</div>
+        <div class="feature-content">
+          <h4>PET/FCE备考衔接</h4>
+          <p>与剑桥考试无缝对接——Think Starter对应KET，Think 1对应PET，Think 2对应FCE，学以致用。</p>
+        </div>
+      </div>
+      <div class="feature-item fade-in">
+        <div class="feature-icon">🔍</div>
+        <div class="feature-content">
+          <h4>发现式语法学习</h4>
+          <p>在真实语境中发现规则，而非死记硬背。学生通过阅读真实文本自主观察语法模式，理解更深刻、运用更灵活。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 花笙的教学特色 ═══ -->
+<section class="highlight-section">
+  <div class="section-inner fade-in">
+    <div class="sec-tag">花笙特色</div>
+    <h2 class="sec-title">不只是教教材</h2>
+    <p class="sec-desc">花笙的Think课程在标准教材之上，加入了真实的辩论训练、议论文工坊和同伴互评体系。</p>
+    <div class="highlight-box">
+      <div class="hl-quote">
+        <em>"Think不只是教英语，是教孩子用英语去思考世界。"</em><br><br>
+        当一个孩子能用英语讨论环保议题、写出有观点的议论文，他的英语能力已经远远超越了考试分数。
+      </div>
+      <div class="highlight-cards">
+        <div class="hl-card">
+          <div class="hlc-icon">⚔️</div>
+          <div class="hlc-label">真实辩论<br>训练</div>
+        </div>
+        <div class="hl-card">
+          <div class="hlc-icon">✍️</div>
+          <div class="hlc-label">议论文<br>工坊</div>
+        </div>
+        <div class="hl-card">
+          <div class="hlc-icon">👥</div>
+          <div class="hlc-label">同伴互评<br>体系</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 学生案例 ═══ -->
+<section class="case-section">
+  <div class="section-inner fade-in">
+    <div class="sec-tag">学员案例</div>
+    <h2 class="sec-title">看看Think学员的成长</h2>
+    <div class="case-card">
+      <div class="case-header">
+        <div class="case-avatar">L</div>
+        <div class="case-info">
+          <h4>Luna</h4>
+          <p>Think Starter在读</p>
+        </div>
+      </div>
+      <div class="case-stats">
+        <div class="case-stat">
+          <div class="cs-num">PET</div>
+          <div class="cs-label">考试通过</div>
+        </div>
+        <div class="case-stat">
+          <div class="cs-num">1500+</div>
+          <div class="cs-label">学术词汇</div>
+        </div>
+        <div class="case-stat">
+          <div class="cs-num">12篇</div>
+          <div class="cs-label">议论文完成</div>
+        </div>
+      </div>
+      <div class="case-quote">
+        "Luna以前从来不敢开口，Think课上辩论训练改变了她。现在她能用英语表达自己的观点，PET也一次通过了。"
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 学习成果 ═══ -->
+<section class="expected-section">
+  <div class="section-inner fade-in">
+    <div class="sec-tag">学习成果</div>
+    <h2 class="sec-title">完成Think系列后</h2>
+    <p class="sec-desc">系统学习Think，收获的不只是英语分数。</p>
+    <div class="expected-grid">
+      <div class="expected-card">
+        <div class="ec-icon">🎯</div>
+        <div class="ec-num">PET/FCE考试通过</div>
+        <div class="ec-label">剑桥官方认证</div>
+      </div>
+      <div class="expected-card">
+        <div class="ec-icon">📝</div>
+        <div class="ec-num">300+词议论文</div>
+        <div class="ec-label">独立撰写能力</div>
+      </div>
+      <div class="expected-card">
+        <div class="ec-icon">🎙️</div>
+        <div class="ec-num">15分钟英语辩论</div>
+        <div class="ec-label">自信表达观点</div>
+      </div>
+      <div class="expected-card">
+        <div class="ec-icon">📚</div>
+        <div class="ec-num">1500-3000+</div>
+        <div class="ec-label">学术词汇量</div>
+      </div>
+      <div class="expected-card">
+        <div class="ec-icon">💡</div>
+        <div class="ec-num">批判性思维</div>
+        <div class="ec-label">分析与论证能力</div>
+      </div>
+      <div class="expected-card">
+        <div class="ec-icon">🌐</div>
+        <div class="ec-num">全球视野</div>
+        <div class="ec-label">议题认知与思考</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ 未来路径 ═══ -->
+<section class="future-section">
+  <div class="section-inner fade-in">
+    <div class="sec-tag">未来路径</div>
+    <h2 class="sec-title">Think之后的无限可能</h2>
+    <p class="sec-desc">Think系列为孩子打开通往更高英语水平和更广阔世界的大门。</p>
+    <div class="future-flow">
+      <div class="future-step fs-violet fade-in">
+        <div class="fs-name">Think 3-4</div>
+        <div class="fs-sub">高阶思辨 · 学术英语深化 · FCE/CAE备考</div>
+      </div>
+      <div class="future-arrow"></div>
+      <div class="future-step fs-light fade-in">
+        <div class="fs-name">FCE / CAE 认证</div>
+        <div class="fs-sub">剑桥通用五级考试 · 国际认可的英语能力证明</div>
+      </div>
+      <div class="future-arrow"></div>
+      <div class="future-step fs-light fade-in">
+        <div class="fs-name">高中英语游刃有余</div>
+        <div class="fs-sub">学术阅读与写作能力远超同龄人</div>
+      </div>
+      <div class="future-arrow"></div>
+      <div class="future-step fs-violet fade-in">
+        <div class="fs-name">出国留学 / 国际学校</div>
+        <div class="fs-sub">真正的英语思维能力，自如应对国际学术环境</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══ CTA ═══ -->
+<section class="cta-section">
+  <h2>让孩子的英语<br>不止于考试</h2>
+  <p class="cta-sub">预约免费测评，了解孩子适合哪个级别</p>
+  <a href="#cta-qr" class="cta-btn">立即预约试听</a>
+  <div class="cta-qr" id="cta-qr">
+    <img src="./花笙青少二维码.jpg" alt="扫码咨询">
+    <span>扫码咨询课程详情</span>
+  </div>
+  <p class="cta-address">📍 广州黄埔区万科城市之光A区正门商铺二楼<br>（地铁5号线文冲A出口100m）</p>
+</section>
+
+<!-- ═══ FOOTER ═══ -->
+<footer>
+  花笙青少英语 · 让每个孩子掌握英文<br>
+  © 2026 花笙教育 All Rights Reserved
+</footer>
+
+<script>
+/* Scroll reveal */
+var faders = document.querySelectorAll('.fade-in, .fade-in-left, .fade-in-right, .scale-in');
+var observer = new IntersectionObserver(function(entries) {
+  entries.forEach(function(e) {
+    if (e.isIntersecting) { e.target.classList.add('visible'); }
+  });
+}, { threshold: 0.15 });
+faders.forEach(function(f) { observer.observe(f); });
+</script>
+
+</body>
+</html>
